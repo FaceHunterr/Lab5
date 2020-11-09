@@ -17,8 +17,8 @@ Brush::Brush(const sf::Vector2f& pos, const sf::Vector2f& s, const std::string& 
 Brush::Brush(const Brush& brush) :
   Object(brush.getPosition(), brush.getSize())
 {
-  setColor(brush.getColor());
-  setThickness(brush.getThickness());
+  color = brush.getColor();
+  thickness = brush.thickness;
   setSprite(*brush.getSprite().getTexture());
   visible = false;
 }
@@ -49,6 +49,6 @@ void  Brush::update(sf::RenderWindow& win, const Layer* layer)
 void Brush::updatePosition(sf::RenderWindow& win)
 {
   //std::cout << sf::Mouse::getPosition().x - win.getPosition().x << "  " << sf::Mouse::getPosition().y - win.getPosition().y << "\n";
-  setPrevPosition(getPosition());
+  prevPosition = getPosition();
   setPosition(sf::Vector2f(sf::Mouse::getPosition(win).x, sf::Mouse::getPosition(win).y));
 }

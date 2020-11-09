@@ -48,7 +48,7 @@ void Figure::paint(Layer& layer)
       EllipseShape shape(resultSize);
       shape.setFillColor(sf::Color::Transparent);
       shape.setOutlineColor(mainPencil->getColor());
-      shape.setOutlineThickness(mainPencil->getThickness());
+      shape.setOutlineThickness(mainPencil->thickness);
       shape.setPosition(-layer.getPosition().x + resultPos.x, layer.getPosition().y + layer.getSize().y - resultPos.y);
       layer.getRTexture().draw(shape);
       break;
